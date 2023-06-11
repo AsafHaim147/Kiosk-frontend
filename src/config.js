@@ -1,0 +1,2 @@
+export const API_URL = 'https://kioskapi.gentlesmoke-279ea367.germanywestcentral.azurecontainerapps.io/'
+export const IMAGE_HOST = 'https://beithaam.gentlesmoke-279ea367.germanywestcentral.azurecontainerapps.io/'

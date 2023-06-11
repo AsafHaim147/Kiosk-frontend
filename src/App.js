@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, CssBaseline, Paper, ThemeProvider, createTheme } from '@mui/material';
+import HomeScreen from './screens/HomeScreen';
+import Menu from './screens/Menu';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
+
+const theme = createTheme({
+  typography: {
+    h1: {
+      fontWeight: 'bold',
+      color: 'black'
+    },
+    h2: {
+      fontSize: '2rem',
+      color: 'black',
+    },
+    h3: {
+      fontSize: '1.8rem',
+      fontWeight: 'bold',
+      color: 'black',
+    }
+  },
+  palette: {
+    primary: { main: '#fbf7f5' },
+    secondary: {
+      main: '#a6c275',
+      contrastText: '#ffffff'
+    }
+
+
+  }
+});
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth="sm">
+          <Paper>
+            <Routes>
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/menu" element={<Menu />} />
+            </Routes>
+          </Paper>
+        </Container>
+      </ThemeProvider>
+    </BrowserRouter>
+
+
+
   );
 }
 
 export default App;
+
